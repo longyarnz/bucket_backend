@@ -1,0 +1,42 @@
+{
+  "name": "bucketlist_backend",
+  "version": "1.0",
+  "description": "A simple Node app",
+  "main": "app.js",
+  "author": "Ayodele Olalekan <longyarnz@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "jsonwebtoken": "^7.4.3",
+    "mongoose": "^5.2.16",
+    "uuid": "^3.2.1",
+    "winston": "^3.0.0-rc4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
+    "mocha": "^5.1.0",
+    "nodemon": "^1.14.3",
+    "nyc": "^11.6.0"
+  },
+  "scripts": {
+    "pretest": "eslint --fix --ignore-path .gitignore .",
+    "test": " nyc report --reporter=html mocha --require babel-register --require babel-polyfill --recursive -R spec --exit || true",
+    "dev": "nodemon --exec babel-node -- app.js",
+    "start": "babel-node app",
+    "compile": "babel **/*.js -d .compiled --ignore node_modules/ --source-maps"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
