@@ -52,6 +52,6 @@ app.get('/', function (req, res) {
  * @description Let express application listen on dedicated PORT
  */
 // eslint-disable-next-line
-app.listen(PORT, () => console.log(`Server listening on ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`Server listening on ${PORT}`));
 
 export default app;
