@@ -1,3 +1,7 @@
+/**
+ * @fileoverview Server configuration and API endpoints.
+ * @exports app
+ */
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
@@ -24,6 +28,7 @@ app.use(cors());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static('docs'));
 
 /**
  * @description Create server Routes

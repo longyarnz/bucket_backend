@@ -1,5 +1,6 @@
 /**
- * @description validateInput is a middleware that validates the username and password fields in the request object
+ * @fileoverview validateInput is a middleware that validates the username and password fields in the request object.
+ * @exports validateInput
  */
 export default (req, res, next) => {
   /**
@@ -24,4 +25,4 @@ export default (req, res, next) => {
   else {
     next();
   }
-}
+};

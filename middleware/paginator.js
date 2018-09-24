@@ -1,6 +1,7 @@
 /**
- * @description paginator is a middleware that extracts query parameters for pagination. 
+ * @fileoverview paginator is a middleware that extracts query parameters for pagination. 
  * The query is parsed and piped to the next callback.
+ * @exports paginator
  */
 export default (req, res, next) => {
   const { query: { page, limit, q } } = req;

@@ -1,5 +1,5 @@
 /**
- * @fileOverview Logger Utility monitors and logs all output to info.log
+ * @fileoverview Logger Utility monitors and logs all output to info.log
  * for debugging and app control
  */
 import { createLogger, format, transports } from 'winston';

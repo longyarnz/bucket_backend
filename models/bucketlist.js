@@ -1,10 +1,11 @@
+/**
+ * @fileoverview Creates a schema for the database.
+ * @exports mongoose.model
+ */
 import mongoose from '../connection/db';
 
 const Schema = mongoose.Schema;
 
-/**
- * @description Creates a schema for the database
- */
 const BucketList = new Schema({
   id: { type: Number, default: 1 },
   name: String,

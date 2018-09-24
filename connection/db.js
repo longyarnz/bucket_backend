@@ -1,3 +1,7 @@
+/**
+ * @fileoverview MongoDB Database configuration.
+ * @exports mongoose
+ */
 import mongoose from 'mongoose';
 
 /**

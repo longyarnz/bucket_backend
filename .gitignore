@@ -1,8 +1,6 @@
 # Folders
 node_modules/
-out/
-Documentation/
 coverage/*
-
+.vscode/
 # Files
 *.log

@@ -1,9 +1,13 @@
+/**
+ * @fileoverview Methods for querying data from the users collection.
+ * @exports { createUser, authenticateUser }
+ */
 import UserModel from '../models/user';
 import logger from '../middleware/logger';
 
 /**
  * @description Authenticates a user given a username and a password
- * @param {{ username: String, password: String }} credentials 
+ * @param {object} credentials - username and password object
  * @return {object} isValid and id
  */
 const authenticateUser = async (credentials) => {
@@ -20,7 +24,7 @@ const authenticateUser = async (credentials) => {
 
 /**
  * @description Creates a user given a username and a password
- * @param {{username: string, password: string}} credentials 
+ * @param {object} credentials - username and password object
  * @return {object} isValid and id
  */
 const createUser = async (credentials) => {
