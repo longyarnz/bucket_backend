@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 /**
  * @description Create server Routes
  */
-app.use('api/v1/auth', Auth);
-app.use('api/v1/bucketlists', BucketLists);
+app.use('/api/v1/auth', Auth);
+app.use('/api/v1/bucketlists', BucketLists);
 
 /**
  * @description Test server connection

@@ -27,7 +27,6 @@
         "semi": [
             "warn",
             "always"
-        ],
-        "no-console": "off"
+        ]
     }
 }

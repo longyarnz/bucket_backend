@@ -14,7 +14,7 @@ const authenticateUser = async (credentials) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -31,7 +31,7 @@ const createUser = async (credentials) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 

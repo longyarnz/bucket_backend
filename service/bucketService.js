@@ -13,7 +13,7 @@ const getUserBucketlists = async (userId, search, start, stop) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -30,7 +30,7 @@ const createBucketlist = async (name, userId) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -48,7 +48,7 @@ const updateBucketlistById = async (bucketId, update) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -64,7 +64,7 @@ const deleteBucketlistById = async (bucketId) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -81,7 +81,7 @@ const getBucketlistById = async (bucketId, userId) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -97,7 +97,7 @@ const getBucketItems = async (bucketId) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -114,7 +114,7 @@ const getBucketItemById = async (bucketId, itemId) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -134,7 +134,7 @@ const updateBucketItemById = async (bucketId, itemId, update) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -151,7 +151,7 @@ const deleteBucketItemById = async (bucketId, itemId) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 
@@ -170,7 +170,7 @@ const addItemToBucket = async (bucketId, item) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 };
 

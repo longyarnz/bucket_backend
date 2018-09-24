@@ -25,7 +25,7 @@ router.get('/', tokenParser, paginator, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -43,7 +43,7 @@ router.post('/', tokenParser, validateBucket, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -60,7 +60,7 @@ router.get('/:bucketId', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -77,7 +77,7 @@ router.put('/:bucketId', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -94,7 +94,7 @@ router.delete('/:bucketId', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -111,7 +111,7 @@ router.get('/:bucketId/items/', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -128,7 +128,7 @@ router.get('/:bucketId/items/:itemId', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -146,7 +146,7 @@ router.put('/:bucketId/items/:itemId', tokenParser, validateItem, async (req, re
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -163,7 +163,7 @@ router.delete('/:bucketId/items/:itemId', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -180,7 +180,7 @@ router.get('/:bucketId/items/', tokenParser, async (req, res) => {
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
@@ -198,7 +198,7 @@ router.post('/:bucketId/items/', tokenParser, validateBucket, async (req, res) =
   }
   catch (err) {
     logger.error(err);
-    console.error(err);
+    
   }
 });
 
