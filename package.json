@@ -32,7 +32,8 @@
   "scripts": {
     "dev": "nodemon --exec babel-node -- app.js",
     "start": "node ./server/app",
-    "compile": "babel **/*.js -d server --ignore node_modules/ --source-maps"
+    "babel": "babel-node app",
+    "compile": "babel **/*.js -d server --ignore node_modules/,build,docs --source-maps"
   },
   "babel": {
     "presets": [
