@@ -30,15 +30,18 @@
     "nyc": "^11.6.0"
   },
   "scripts": {
-    "pretest": "eslint --fix --ignore-path .gitignore .",
-    "test": " nyc report --reporter=html mocha --require babel-register --require babel-polyfill --recursive -R spec --exit || true",
     "dev": "nodemon --exec babel-node -- app.js",
-    "start": "babel-node app",
-    "compile": "babel **/*.js -d .compiled --ignore node_modules/ --source-maps"
+    "start": "node ./server/app",
+    "compile": "babel **/*.js -d server --ignore node_modules/ --source-maps"
   },
   "babel": {
     "presets": [
       "env"
     ]
+  },
+  "engines": {
+    "node": "10.2.1",
+    "yarn": "1.9.4",
+    "npm": "5.6.0"
   }
 }
