@@ -1,9 +1,9 @@
 /**
- * @description validateInput is a middleware that validates the username and password fields in the request object
+ * @description validateInput is a middleware that validates the name field in the request object
  */
 export default (req, res, next) => {
   /**
-   * @description Destructures and extracts username and password from Request object
+   * @description Destructures and extracts name from the Request object
    */
   const { name } = req.body;
 
@@ -11,14 +11,14 @@ export default (req, res, next) => {
    * @description Tests for data input
    */
   if (!name) {
-    res.status(403).json({ message: 'Invalid Inputs' });
+    res.status(401).json({ message: 'Invalid Inputs' });
   }
 
   /**
    * @description Tests for data validity
    */
   else if (typeof name !== 'string') {
-    res.status(403).json({ message: 'Invalid Inputs' });
+    res.status(401).json({ message: 'Invalid Inputs' });
   }
 
   else {

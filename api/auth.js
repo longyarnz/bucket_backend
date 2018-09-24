@@ -4,10 +4,17 @@ import UUID from 'uuid';
 import { authenticateUser, createUser } from '../service/userService';
 import validateInput from '../middleware/validateInput';
 import logger from '../middleware/logger';
+import tokenParser from '../middleware/tokenParser';
 
 const router = express.Router();
 let SERVER_KEY = UUID.v4();
 
+/**
+ * @description Registers a user into the Server
+ * @param {string} route An API route to login
+ * @param {middleware} validateInput - Callback for post method to routes
+ * @returns {Response} JSON
+ */
 router.post('/create', validateInput, async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -18,19 +25,19 @@ router.post('/create', validateInput, async (req, res) => {
     }
 
     else {
-      res.status(403).json();
+      res.status(401).json();
     }
   }
   catch (err) {
     logger.error(err);
-    res.status(403).json();
-  };
+    res.status(401).json();
+  }
 });
 
 /**
- * @description Log a user into the Server
+ * @description Logs a user into the Server
  * @param {string} route An API route to login
- * @param {API_ROUTES_CALLBACK} callback - Callback for post method to routes
+ * @param {middleware} validateInput - Callback for post method to routes
  * @returns {Response} JSON
  */
 router.post('/login', validateInput, async (req, res) => {
@@ -48,8 +55,7 @@ router.post('/login', validateInput, async (req, res) => {
 
         const message = {
           text: 'User log-in successful',
-          token,
-          key: SERVER_KEY
+          token
         };
 
         /**
@@ -60,19 +66,29 @@ router.post('/login', validateInput, async (req, res) => {
     }
 
     else {
-      throw new Error('User does not exist');
+      const message = {
+        text: 'Username and password does not match',
+        token: false
+      };
+
+      res.status(200).json(message);
     }
   }
 
   catch (err) {
     logger.error(err);
-    res.status(403).send(err.message);
+    res.status(401).json(err.message);
   }
 });
 
-router.get('/logout', (req, res) => {
+/**
+ * @description Log a user out of the Server
+ * @param {string} route An API route to login
+ * @returns {Response} JSON
+ */
+router.get('/logout', tokenParser, (req, res) => {
   SERVER_KEY = UUID.v4();
-  res.status(200).json();
+  res.status(200).json(true);
 });
 
 export { SERVER_KEY };

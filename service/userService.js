@@ -10,7 +10,7 @@ const authenticateUser = async (credentials) => {
   try {
     const { username, password } = credentials;
     const user = await UserModel.findOne({ username, password });
-    return typeof user === 'object' ? { isValid: true, id: user._id } : { isValid: false, id: null };
+    return user ? { isValid: true, id: user._id } : { isValid: false, id: null };
   }
   catch (err) {
     logger.error(err);
@@ -19,7 +19,7 @@ const authenticateUser = async (credentials) => {
 };
 
 /**
- * @description Authenticates a user given a username and a password
+ * @description Creates a user given a username and a password
  * @param {{username: string, password: string}} credentials 
  * @return {object} isValid and id
  */

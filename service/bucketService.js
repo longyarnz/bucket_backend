@@ -35,9 +35,10 @@ const createBucketlist = async (name, userId) => {
 };
 
 /**
- * @description Creates a bucketlist for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
- * @return {array} An array of bucketlists.
+ * @description Updates a bucketlist for the user.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
+ * @param {update: object} update - An object to update the bucketlist.
+ * @return {object} A bucketlist object.
  */
 const updateBucketlistById = async (bucketId, update) => {
   try {
@@ -52,9 +53,9 @@ const updateBucketlistById = async (bucketId, update) => {
 };
 
 /**
- * @description Creates a bucketlist for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
- * @return {array} An array of bucketlists.
+ * @description Deletes a bucketlist for the user.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
+ * @return {boolean} A boolean value.
  */
 const deleteBucketlistById = async (bucketId) => {
   try {
@@ -68,9 +69,10 @@ const deleteBucketlistById = async (bucketId) => {
 };
 
 /**
- * @description Creates a bucketlist for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
- * @return {array} An array of bucketlists.
+ * @description Gets a bucketlist for the user by the ID.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
+ * @param {userId: string} update - A unique user ID.
+ * @return {object} A bucketlists object.
  */
 const getBucketlistById = async (bucketId, userId) => {
   try {
@@ -84,8 +86,8 @@ const getBucketlistById = async (bucketId, userId) => {
 };
 
 /**
- * @description Creates a bucketlist for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
+ * @description Gets all items in a bucketlist.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
  * @return {array} An array of bucketlists.
  */
 const getBucketItems = async (bucketId) => {
@@ -100,8 +102,9 @@ const getBucketItems = async (bucketId) => {
 };
 
 /**
- * @description Creates a bucketlist for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
+ * @description Gets a single item in a bucketlist.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
+ * @param {itemId: string} update - A unique item ID.
  * @return {array} An array of bucketlists.
  */
 const getBucketItemById = async (bucketId, itemId) => {
@@ -117,7 +120,9 @@ const getBucketItemById = async (bucketId, itemId) => {
 
 /**
  * @description Updates a bucketlist item for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
+ * @param {itemId: string} update - A unique item ID.
+ * @param {update: object} update - An object to update the bucketlist.
  * @return {array} An array of bucketlists.
  */
 const updateBucketItemById = async (bucketId, itemId, update) => {
@@ -135,8 +140,9 @@ const updateBucketItemById = async (bucketId, itemId, update) => {
 
 /**
  * @description Deletes a bucketlist item for the user.
- * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
- * @return {array} An array of bucketlists.
+ * @param {bucketId: string} bucketId - A unique bucketlist ID.
+ * @param {itemId: string} update - A unique item ID.
+ * @return {boolean} true or false.
  */
 const deleteBucketItemById = async (bucketId, itemId) => {
   try {
@@ -150,9 +156,9 @@ const deleteBucketItemById = async (bucketId, itemId) => {
 };
 
 /**
- * @description Creates a bucketlist for the user.
+ * @description Adds an item to a bucketlist.
  * @param {{name: string, userId: string}} bucketlist - An object containing ID of logged-in user and the name of the new bucketlist.
- * @return {array} An array of bucketlists.
+ * @return {object} An item object.
  */
 const addItemToBucket = async (bucketId, item) => {
   try {
@@ -160,7 +166,7 @@ const addItemToBucket = async (bucketId, item) => {
     item.id = ++items.length;
     item = { $push: { items: item } };
     const bucketlist = await BucketListModel.findOneAndUpdate({ _id: bucketId }, item, { new: true });
-    return bucketlist;
+    return bucketlist.items.sort((a, b) => b.date_created - a.date_created)[0];
   }
   catch (err) {
     logger.error(err);

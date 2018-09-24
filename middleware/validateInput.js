@@ -11,14 +11,14 @@ export default (req, res, next) => {
    * @description Tests for data input
    */
   if (!username || !password) {
-    res.status(403).json({ message: 'Invalid Inputs' });
+    res.status(401).json({ message: 'Invalid Inputs' });
   }
 
   /**
    * @description Tests for data validity
    */
   else if (typeof username !== 'string' || typeof password !== 'string') {
-    res.status(403).json({ message: 'Invalid Inputs' });
+    res.status(401).json({ message: 'Invalid Inputs' });
   }
 
   else {

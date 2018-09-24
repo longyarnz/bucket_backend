@@ -187,10 +187,10 @@ router.get('/:bucketId/items/', tokenParser, async (req, res) => {
 /**
  * @description Adds a single item to a bucketlist
  * @param {middleware} tokenParser - Extracts userId from token
- * @param {middleware} validateItem - Validates input data
+ * @param {middleware} validateBucket - Validates input data
  * @returns {object} A bucketlist object
  */
-router.post('/:bucketId/items/', tokenParser, validateItem, async (req, res) => {
+router.post('/:bucketId/items/', tokenParser, validateBucket, async (req, res) => {
   try {
     const { body, params: {bucketId} } = req;
     const bucketlist = await addItemToBucket(bucketId, body);

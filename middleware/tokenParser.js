@@ -9,7 +9,7 @@ export default (req, res, next) => {
   const token = req.headers['authorization'];
   JWT.verify(token, SERVER_KEY, (err, decoded) => {
     if (err) {
-      res.status(403).json({ message: 'Invalid User' });
+      res.status(401).json({ message: 'Invalid User' });
     }
     else {
       req.userId = decoded.id;

@@ -7,7 +7,7 @@ import BucketLists from './api/bucketlists';
 /**
  * @constant {number} PORT
  */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 /**
  * @description Creates an express application
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 /**
- * @description Add body-parser middleware for parsing request body to text, json, url object or form data
+ * @description Add middleware for parsing request body to text, json, url object or form data
  * @function EXPRESS_USE_MIDDLEWARE
  * @param {middleware} body-parser A middleware for parsing request body to functional data type
  */
@@ -28,8 +28,8 @@ app.use(bodyParser.json());
 /**
  * @description Create server Routes
  */
-app.use('/auth', Auth);
-app.use('/bucketlists', BucketLists);
+app.use('api/v1/auth', Auth);
+app.use('api/v1/bucketlists', BucketLists);
 
 /**
  * @description Test server connection
