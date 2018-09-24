@@ -6,10 +6,17 @@ Bucket App Backend API is a REST API with multiple endpoints for user access and
 ### How To Use
 In a development environment install dependencies. Run npm install in the project folder,
 ```sh
-  npm install
+  $ npm install
 ```
 or run yarn
 ```sh
-  yarn
+  $ yarn
 ```
-The dependies will be installed on your local machine.  
+The dependies will be installed on your local machine. Then open the app by running:
+```sh
+  $ npm start
+```
+or
+```sh
+  $ yarn start
+```
