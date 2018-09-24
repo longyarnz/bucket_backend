@@ -28,7 +28,7 @@ app.use(cors());
 app.use(bodyParser.text());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('docs'));
+app.use(express.static('build'));
 
 /**
  * @description Create server Routes
