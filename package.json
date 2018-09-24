@@ -14,12 +14,12 @@
     "jsonwebtoken": "^7.4.3",
     "mongoose": "^5.2.16",
     "uuid": "^3.2.1",
-    "winston": "^3.0.0-rc4"
+    "winston": "^3.0.0-rc4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
