@@ -1,6 +1,6 @@
 {
   "name": "bucketlist_backend",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "A simple Node app",
   "main": "app.js",
   "author": "Ayodele Olalekan <longyarnz@gmail.com>",
